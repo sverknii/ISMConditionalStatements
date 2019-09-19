@@ -58,13 +58,21 @@ namespace WinFormTask
 
             if (double.TryParse(textBox_x.Text, out x) && double.TryParse(textBox_y.Text, out y) && double.TryParse(textBox_z.Text, out z))
             {
-                pow_y = Math.Pow(y, (2 - z));
-                numerator1 = 2 * Math.Cos(x * x) - (1.0 / 2.0);
-                denominator1 = (1.0 / 2.0) + Math.Sin(pow_y);
-                numerator2 = z * z;
-                denominator2 = 7 - (z / 3.0);
-                result = (numerator1 / denominator1) + (numerator2 / denominator2);
-                textBox_r.Text = result.ToString("F2");
+                if (y == 0 && z > 2)
+                {
+                    MessageBox.Show("Недопустимое значение у", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    pow_y = Math.Pow(y, (2 - z));
+                    numerator1 = 2 * Math.Cos(x * x) - (1.0 / 2.0);
+                    denominator1 = (1.0 / 2.0) + Math.Sin(pow_y);
+                    numerator2 = z * z;
+                    denominator2 = 7 - (z / 3.0);
+                    result = (numerator1 / denominator1) + (numerator2 / denominator2);
+                    textBox_r.Text = result.ToString("F2");
+                }
             }
             else
             {

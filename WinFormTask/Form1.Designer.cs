@@ -148,7 +148,6 @@
             this.textBox_x.Name = "textBox_x";
             this.textBox_x.Size = new System.Drawing.Size(502, 34);
             this.textBox_x.TabIndex = 7;
-            this.textBox_x.Text = ".";
             this.textBox_x.TextChanged += new System.EventHandler(this.TextBox_x_TextChanged);
             // 
             // button1
